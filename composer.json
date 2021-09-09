@@ -25,12 +25,12 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "src/"
+            "MyHotels\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "App\\Tests\\": "tests/"
+            "MyHotels\\Tests\\": "tests/"
         }
     },
     "replace": {

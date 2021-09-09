@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace MyHotels;
 
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
