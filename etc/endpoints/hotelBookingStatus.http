@@ -1,0 +1,5 @@
+# Fetch hotel booking status
+GET localhost:8000/hotel/100/booking/status/
+Content-Type: application/json
+
+###

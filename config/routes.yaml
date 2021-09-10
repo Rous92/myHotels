@@ -1,3 +1,4 @@
-#index:
-#    path: /
-#    controller: MyHotels\Controller\DefaultController::index
+hotel_booking_status:
+  path: /hotel/{id}/booking/status
+  controller: MyHotels\Core\Infrastructure\Ui\Rest\Controller\Hotel\GetHotelBookingStatusController
+  methods: GET
