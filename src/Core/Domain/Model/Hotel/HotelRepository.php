@@ -1,6 +1,6 @@
 <?php
 
-namespace MyHotels\Core\Domain\Model;
+namespace MyHotels\Core\Domain\Model\Hotel;
 
 interface HotelRepository
 {

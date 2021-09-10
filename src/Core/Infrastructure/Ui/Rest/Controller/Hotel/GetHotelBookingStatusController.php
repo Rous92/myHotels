@@ -2,7 +2,7 @@
 
 namespace MyHotels\Core\Infrastructure\Ui\Rest\Controller\Hotel;
 
-use MyHotels\Core\Domain\Model\HotelRepository;
+use MyHotels\Core\Domain\Model\Hotel\HotelRepository;
 use MyHotels\Shared\Infrastructure\Ui\Rest\Controller\AbstractController;
 use MyHotels\Shared\Infrastructure\Ui\Rest\Response\HttpOkResponse;
 use Symfony\Component\HttpFoundation\Request;

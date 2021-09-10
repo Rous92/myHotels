@@ -1,6 +1,6 @@
 <?php
 
-namespace MyHotels\Core\Domain\Model;
+namespace MyHotels\Core\Domain\Model\Hotel;
 
 use MyHotels\Shared\Domain\Model\Entity;
 
