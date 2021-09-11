@@ -16,5 +16,15 @@
                 </inverse-join-columns>
             </join-table>
         </many-to-many>
+        <many-to-many field="bookings" target-entity="MyHotels\Core\Domain\Model\Booking\Booking">
+            <join-table name="hotel_bookings">
+                <join-columns>
+                    <join-column name="hotel_id"/>
+                </join-columns>
+                <inverse-join-columns>
+                    <join-column name="booking_id"/>
+                </inverse-join-columns>
+            </join-table>
+        </many-to-many>
     </entity>
 </doctrine-mapping>

@@ -3,6 +3,7 @@
 namespace MyHotels\Core\Infrastructure\Persistence\MySql\Repository\Hotel;
 
 use MyHotels\Core\Domain\Model\Hotel\Hotel;
+use MyHotels\Core\Domain\Model\Hotel\HotelId;
 use MyHotels\Core\Domain\Model\Hotel\HotelRepository;
 use MyHotels\Shared\Infrastructure\Persistence\MySql\DoctrineRepository;
 
@@ -10,12 +11,12 @@ class HotelMySqlRepository extends DoctrineRepository implements HotelRepository
 {
     const ENTITY = Hotel::class;
 
-    public function find(int $id): ?Hotel
+    public function find(HotelId $id): ?Hotel
     {
-        return $this->repository(self::ENTITY)->find($id);
+        return $this->repository(self::ENTITY)->find($id->value());
     }
 
-    public function findWithRooms(int $id)
+    public function findWithRoomsAndBookings(HotelId $id)
     {
         $queryBuilder = $this->entityManager()
             ->createQueryBuilder();
@@ -24,8 +25,9 @@ class HotelMySqlRepository extends DoctrineRepository implements HotelRepository
             ->select('hotel')
             ->from(self::ENTITY, 'hotel')
             ->leftJoin('hotel.rooms', 'rooms')
+            ->leftJoin('hotel.bookings', 'bookings')
             ->where('hotel.id = :id')
-            ->setParameter(':id', $id);
+            ->setParameter(':id', $id->value());
 
         $query = $queryBuilder->getQuery();
 

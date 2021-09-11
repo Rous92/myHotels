@@ -1,0 +1,12 @@
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+    <entity name="MyHotels\Core\Domain\Model\Booking\Booking" table="bookings">
+        <id name="id" column="id" />
+        <embedded name="firstName" class="MyHotels\Core\Domain\Model\Booking\BookingFirstName" use-column-prefix="false"/>
+        <embedded name="lastName" class="MyHotels\Core\Domain\Model\Booking\BookingLastName" use-column-prefix="false"/>
+        <embedded name="email" class="MyHotels\Core\Domain\Model\Booking\BookingEmail" use-column-prefix="false"/>
+        <embedded name="entryDate" class="MyHotels\Core\Domain\Model\Booking\BookingEntryDate" use-column-prefix="false"/>
+        <embedded name="leavingDate" class="MyHotels\Core\Domain\Model\Booking\BookingLeavingDate" use-column-prefix="false"/>
+        <embedded name="numOfGuests" class="MyHotels\Core\Domain\Model\Booking\BookingNumOfGuests" use-column-prefix="false"/>
+        <embedded name="roomId" class="MyHotels\Core\Domain\Model\Booking\BookingRoomId" use-column-prefix="false"/>
+    </entity>
+</doctrine-mapping>

@@ -4,7 +4,7 @@ namespace MyHotels\Core\Domain\Model\Hotel;
 
 interface HotelRepository
 {
-    public function find(int $id): ?Hotel;
+    public function find(HotelId $id): ?Hotel;
 
-    public function findWithRooms(int $id);
+    public function findWithRoomsAndBookings(HotelId $id);
 }

@@ -15,6 +15,6 @@ class HotelBookingStatusFinder
 
     public function __invoke(GetHotelBookingStatus $dto): ?Hotel
     {
-        return $this->hotelRepository->findWithRooms($dto->hotelId());
+        return $this->hotelRepository->findWithRoomsAndBookings($dto->hotelId());
     }
 }

@@ -19,11 +19,11 @@ final class HotelBookingStatusTransformer implements TransformableEntity
     public function read()
     {
         $hotelData = $this->data->toArray();
+        $hotelData['rooms'] = [];
+        $hotelData['bookings'] = [];
 
-        $rooms = [];
-        foreach ($this->data->rooms() as $room) $rooms[] = $room->toArray();
-
-        $hotelData['rooms'] = $rooms;
+        foreach ($this->data->rooms() as $room) $hotelData['rooms'][] = $room->toArray();
+        foreach ($this->data->bookings() as $booking) $hotelData['bookings'][] = $booking->toArray();
 
         return $hotelData;
     }

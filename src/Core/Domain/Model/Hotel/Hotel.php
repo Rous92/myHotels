@@ -4,12 +4,12 @@ namespace MyHotels\Core\Domain\Model\Hotel;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use MyHotels\Core\Domain\Model\Room\Room;
 use MyHotels\Shared\Domain\Model\Entity;
 
 class Hotel implements Entity
 {
     private Collection $rooms;
+    private Collection $bookings;
 
     public function __construct(
         private int             $id,
@@ -21,6 +21,7 @@ class Hotel implements Entity
     )
     {
         $this->rooms = new ArrayCollection();
+        $this->bookings = new ArrayCollection();
     }
 
     public function id(): int
@@ -79,12 +80,8 @@ class Hotel implements Entity
         return $this->rooms;
     }
 
-    public function addRoom(Room $room): Hotel
+    public function bookings(): Collection
     {
-        if (!$this->rooms->contains($room)) {
-            $this->rooms[] = $room;
-        }
-
-        return $this;
+        return $this->bookings;
     }
 }
