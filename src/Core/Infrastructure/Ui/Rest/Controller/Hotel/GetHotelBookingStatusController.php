@@ -4,6 +4,7 @@ namespace MyHotels\Core\Infrastructure\Ui\Rest\Controller\Hotel;
 
 use MyHotels\Core\Application\GetHotelBookingStatus;
 use MyHotels\Core\Application\HotelBookingStatusFinder;
+use MyHotels\Core\Application\Transformers\HotelBookingStatusTransformer;
 use MyHotels\Shared\Infrastructure\Ui\Rest\Controller\AbstractController;
 use MyHotels\Shared\Infrastructure\Ui\Rest\Response\HttpNotFoundResponse;
 use MyHotels\Shared\Infrastructure\Ui\Rest\Response\HttpOkResponse;
@@ -11,7 +12,9 @@ use Symfony\Component\HttpFoundation\Request;
 
 final class GetHotelBookingStatusController extends AbstractController
 {
-    public function __construct(private HotelBookingStatusFinder $service)
+    public function __construct(
+        private HotelBookingStatusFinder $service,
+        private HotelBookingStatusTransformer $transformer)
     {
     }
 
@@ -25,6 +28,8 @@ final class GetHotelBookingStatusController extends AbstractController
             return new HttpNotFoundResponse();
         }
 
-        return new HttpOkResponse(['message' => 'WIP call', 'data' => $hotel->toArray()]);
+        $hotelBookingStatus = $this->transformer->write($hotel)->read();
+
+        return new HttpOkResponse(['data' => $hotelBookingStatus]);
     }
 }

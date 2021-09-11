@@ -6,5 +6,15 @@
         <embedded name="phone" class="MyHotels\Core\Domain\Model\Hotel\HotelPhone" use-column-prefix="false"/>
         <embedded name="numOfRooms" class="MyHotels\Core\Domain\Model\Hotel\HotelNumOfRooms" use-column-prefix="false"/>
         <embedded name="numOfStars" class="MyHotels\Core\Domain\Model\Hotel\HotelNumOfStars" use-column-prefix="false"/>
+        <many-to-many field="rooms" target-entity="MyHotels\Core\Domain\Model\Room\Room">
+            <join-table name="hotel_rooms">
+                <join-columns>
+                    <join-column name="hotel_id"/>
+                </join-columns>
+                <inverse-join-columns>
+                    <join-column name="room_id"/>
+                </inverse-join-columns>
+            </join-table>
+        </many-to-many>
     </entity>
 </doctrine-mapping>

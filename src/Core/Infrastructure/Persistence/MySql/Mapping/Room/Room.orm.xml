@@ -1,0 +1,11 @@
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+    <entity name="MyHotels\Core\Domain\Model\Room\Room" table="rooms">
+        <id name="id" column="id" />
+        <embedded name="numOfGuests" class="MyHotels\Core\Domain\Model\Room\RoomNumOfGuests" use-column-prefix="false"/>
+        <embedded name="numOfBeds" class="MyHotels\Core\Domain\Model\Room\RoomNumOfBeds" use-column-prefix="false"/>
+        <embedded name="hasTerrace" class="MyHotels\Core\Domain\Model\Room\RoomHasTerrace" use-column-prefix="false"/>
+        <embedded name="hasTelevision" class="MyHotels\Core\Domain\Model\Room\RoomHasTelevision" use-column-prefix="false"/>
+        <embedded name="hasAirConditioner" class="MyHotels\Core\Domain\Model\Room\RoomHasAirConditioner" use-column-prefix="false"/>
+        <embedded name="hasSafe" class="MyHotels\Core\Domain\Model\Room\RoomHasSafe" use-column-prefix="false"/>
+    </entity>
+</doctrine-mapping>

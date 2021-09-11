@@ -2,10 +2,15 @@
 
 namespace MyHotels\Core\Domain\Model\Hotel;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+use MyHotels\Core\Domain\Model\Room\Room;
 use MyHotels\Shared\Domain\Model\Entity;
 
 class Hotel implements Entity
 {
+    private Collection $rooms;
+
     public function __construct(
         private int             $id,
         private HotelName       $name,
@@ -15,6 +20,7 @@ class Hotel implements Entity
         private HotelNumOfStars $numOfStars,
     )
     {
+        $this->rooms = new ArrayCollection();
     }
 
     public function id(): int
@@ -66,5 +72,19 @@ class Hotel implements Entity
     public function toJson(): string
     {
        return json_encode($this->toArray());
+    }
+
+    public function rooms(): Collection
+    {
+        return $this->rooms;
+    }
+
+    public function addRoom(Room $room): Hotel
+    {
+        if (!$this->rooms->contains($room)) {
+            $this->rooms[] = $room;
+        }
+
+        return $this;
     }
 }

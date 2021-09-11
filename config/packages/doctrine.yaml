@@ -15,3 +15,8 @@ doctrine:
                 type: xml
                 dir: '%kernel.project_dir%/src/Core/Infrastructure/Persistence/MySql/Mapping/Hotel'
                 prefix: 'MyHotels\Core\Domain\Model\Hotel'
+            Core_Room:
+                is_bundle: false
+                type: xml
+                dir: '%kernel.project_dir%/src/Core/Infrastructure/Persistence/MySql/Mapping/Room'
+                prefix: 'MyHotels\Core\Domain\Model\Room'
