@@ -4,7 +4,7 @@
         <embedded name="name" class="MyHotels\Core\Domain\Model\Hotel\HotelName" use-column-prefix="false"/>
         <embedded name="address" class="MyHotels\Core\Domain\Model\Hotel\HotelAddress" use-column-prefix="false"/>
         <embedded name="phone" class="MyHotels\Core\Domain\Model\Hotel\HotelPhone" use-column-prefix="false"/>
-        <embedded name="rooms" class="MyHotels\Core\Domain\Model\Hotel\HotelRooms" use-column-prefix="false"/>
-        <embedded name="stars" class="MyHotels\Core\Domain\Model\Hotel\HotelStars" use-column-prefix="false"/>
+        <embedded name="numOfRooms" class="MyHotels\Core\Domain\Model\Hotel\HotelNumOfRooms" use-column-prefix="false"/>
+        <embedded name="numOfStars" class="MyHotels\Core\Domain\Model\Hotel\HotelNumOfStars" use-column-prefix="false"/>
     </entity>
 </doctrine-mapping>

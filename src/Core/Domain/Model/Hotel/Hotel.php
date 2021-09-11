@@ -7,12 +7,12 @@ use MyHotels\Shared\Domain\Model\Entity;
 class Hotel implements Entity
 {
     public function __construct(
-        private int $id,
-        private HotelName $name,
-        private HotelAddress $address,
-        private HotelPhone $phone,
-        private HotelRooms $rooms,
-        private HotelStars $stars,
+        private int             $id,
+        private HotelName       $name,
+        private HotelAddress    $address,
+        private HotelPhone      $phone,
+        private HotelNumOfRooms $numOfRooms,
+        private HotelNumOfStars $numOfStars,
     )
     {
     }
@@ -37,14 +37,14 @@ class Hotel implements Entity
         return $this->phone;
     }
 
-    public function rooms(): HotelRooms
+    public function numOfRooms(): HotelNumOfRooms
     {
-        return $this->rooms;
+        return $this->numOfRooms;
     }
 
-    public function stars(): HotelStars
+    public function numOfStars(): HotelNumOfStars
     {
-        return $this->stars;
+        return $this->numOfStars;
     }
 
     public function equals(Entity $other): bool
@@ -58,8 +58,8 @@ class Hotel implements Entity
             'name' => $this->name->value(),
             'address' => $this->address->value(),
             'phone' => $this->phone->value(),
-            'rooms' => $this->rooms->value(),
-            'stars' => $this->stars->value(),
+            'num_of_rooms' => $this->numOfRooms->value(),
+            'num_of_stars' => $this->numOfStars->value(),
         ];
     }
 
