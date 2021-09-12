@@ -4,6 +4,8 @@ namespace MyHotels\Core\Domain\Model\Hotel;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use MyHotels\Core\Domain\Model\Booking\Booking;
+use MyHotels\Core\Domain\Model\Room\Room;
 use MyHotels\Shared\Domain\Model\Entity;
 
 class Hotel implements Entity
@@ -79,8 +81,26 @@ class Hotel implements Entity
         return $this->rooms;
     }
 
+    public function addRoom(Room $room): Hotel
+    {
+        if (!$this->rooms->contains($room)) {
+            $this->rooms->add($room);
+        }
+
+        return $this;
+    }
+
     public function bookings(): Collection
     {
         return $this->bookings;
+    }
+
+    public function addBooking(Booking $booking): Hotel
+    {
+        if (!$this->bookings->contains($booking)) {
+            $this->bookings->add($booking);
+        }
+
+        return $this;
     }
 }

@@ -18,11 +18,10 @@ final class RoomNumOfBeds extends IntValueObject
         parent::__construct($value);
     }
 
-    private function guard(?string $value): void
+    private function guard(int $value): void
     {
         try {
             Assertion::notEmpty($value, 'Num of beds is empty');
-            Assertion::integer($value, 'Num of beds is not an integer');
             Assertion::min($value, self::MIN_NUM_OF_BEDS, 'Num of beds is lower than expected');
             Assertion::max($value, self::MAX_NUM_OF_BEDS, 'Num of beds is higher than expected');
         } catch (AssertionFailedException $e) {

@@ -18,11 +18,9 @@ final class HotelNumOfStars extends IntValueObject
         parent::__construct($value);
     }
 
-    private function guard(?string $value): void
+    private function guard(int $value): void
     {
         try {
-            Assertion::notEmpty($value, 'Num of stars is empty');
-            Assertion::integer($value, 'Num of stars is not an integer');
             Assertion::min($value, self::MIN_NUM_OF_STARS, 'Num of stars is lower than expected');
             Assertion::max($value, self::MAX_NUM_OF_STARS, 'Num of stars is higher than expected');
         } catch (AssertionFailedException $e) {

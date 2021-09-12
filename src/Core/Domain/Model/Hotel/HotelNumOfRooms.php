@@ -9,6 +9,7 @@ use MyHotels\Shared\Domain\Model\ValueObject\IntValueObject;
 
 final class HotelNumOfRooms extends IntValueObject
 {
+    public const MIN_NUM_OF_ROOMS = 1;
     public const MAX_NUM_OF_ROOMS = 500;
 
     public function __construct(int $value)
@@ -17,11 +18,10 @@ final class HotelNumOfRooms extends IntValueObject
         parent::__construct($value);
     }
 
-    private function guard(?string $value): void
+    private function guard(int $value): void
     {
         try {
-            Assertion::notEmpty($value, 'Num of rooms is empty');
-            Assertion::integer($value, 'Num of rooms is not an integer');
+            Assertion::min($value, self::MIN_NUM_OF_ROOMS, 'Num of rooms is lower than expected');
             Assertion::max($value, self::MAX_NUM_OF_ROOMS, 'Num of rooms is higher than expected');
         } catch (AssertionFailedException $e) {
             throw new DomainException($e->getMessage());

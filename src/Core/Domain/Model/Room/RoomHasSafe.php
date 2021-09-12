@@ -2,26 +2,12 @@
 
 namespace MyHotels\Core\Domain\Model\Room;
 
-use Assert\Assertion;
-use Assert\AssertionFailedException;
-use DomainException;
-use MyHotels\Shared\Domain\Model\ValueObject\IntValueObject;
+use MyHotels\Shared\Domain\Model\ValueObject\BooleanValueObject;
 
-final class RoomHasSafe extends IntValueObject
+final class RoomHasSafe extends BooleanValueObject
 {
-    public function __construct(int $value)
+    public function __construct(bool $value)
     {
-        $this->guard($value);
         parent::__construct($value);
-    }
-
-    private function guard(?string $value): void
-    {
-        try {
-            Assertion::notEmpty($value, 'Has safe is empty');
-            Assertion::boolean($value, 'Has safe is not a boolean');
-        } catch (AssertionFailedException $e) {
-            throw new DomainException($e->getMessage());
-        }
     }
 }

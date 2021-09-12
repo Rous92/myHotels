@@ -9,12 +9,12 @@ class BookingEntryDate extends DateTime
 {
     public function __construct(?string $time = null, ?DateTimeZone $timezone = null)
     {
-        parent::__construct($time, $timezone, self::FORMAT_SHORT);
+        parent::__construct($time, $timezone, self::FORMAT_FULL);
     }
 
     public static function fromString(?string $date = 'now'): DateTime
     {
-        self::guardFormatValidation($date, self::FORMAT_SHORT);
+        self::guardFormatValidation($date, self::FORMAT_FULL);
 
         return new self($date);
     }

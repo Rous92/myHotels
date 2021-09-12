@@ -11,6 +11,11 @@ class HotelMySqlRepository extends DoctrineRepository implements HotelRepository
 {
     public const ENTITY = Hotel::class;
 
+    public function save(Hotel $hotel)
+    {
+        $this->persist($hotel);
+    }
+
     public function find(HotelId $id): ?Hotel
     {
         return $this->repository(self::ENTITY)->find($id->value());

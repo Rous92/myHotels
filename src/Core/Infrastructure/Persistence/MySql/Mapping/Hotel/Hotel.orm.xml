@@ -6,7 +6,11 @@
         <embedded name="phone" class="MyHotels\Core\Domain\Model\Hotel\HotelPhone" use-column-prefix="false"/>
         <embedded name="numOfRooms" class="MyHotels\Core\Domain\Model\Hotel\HotelNumOfRooms" use-column-prefix="false"/>
         <embedded name="numOfStars" class="MyHotels\Core\Domain\Model\Hotel\HotelNumOfStars" use-column-prefix="false"/>
-        <many-to-many field="rooms" target-entity="MyHotels\Core\Domain\Model\Room\Room">
+        <many-to-many field="rooms" target-entity="MyHotels\Core\Domain\Model\Room\Room" >
+            <cascade>
+                <cascade-persist/>
+                <cascade-remove/>
+            </cascade>
             <join-table name="hotel_rooms">
                 <join-columns>
                     <join-column name="hotel_id"/>
@@ -17,6 +21,10 @@
             </join-table>
         </many-to-many>
         <many-to-many field="bookings" target-entity="MyHotels\Core\Domain\Model\Booking\Booking">
+            <cascade>
+                <cascade-persist/>
+                <cascade-remove/>
+            </cascade>
             <join-table name="hotel_bookings">
                 <join-columns>
                     <join-column name="hotel_id"/>

@@ -18,7 +18,7 @@ final class HotelAddress extends StringValueObject
         parent::__construct($value);
     }
 
-    private function guard(?string $value): void
+    private function guard(string $value): void
     {
         try {
             Assertion::notEmpty($value, 'Address is empty');
