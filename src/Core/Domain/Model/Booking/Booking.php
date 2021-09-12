@@ -15,8 +15,7 @@ class Booking implements Entity
         private BookingLeavingDate $leavingDate,
         private BookingNumOfGuests $numOfGuests,
         private BookingRoomId $roomId
-    )
-    {
+    ) {
     }
 
     public function id(): int
@@ -39,9 +38,6 @@ class Booking implements Entity
         return $this->email;
     }
 
-    /**
-     * @return BookingEntryDate
-     */
     public function entryDate(): BookingEntryDate
     {
         return $this->entryDate;
@@ -77,13 +73,12 @@ class Booking implements Entity
             'entry_date' => $this->entryDate->shortFormat()->toString(),
             'leaving_date' => $this->leavingDate->shortFormat()->toString(),
             'num_of_guests' => $this->numOfGuests->value(),
-            'room_id' => $this->roomId->value()
+            'room_id' => $this->roomId->value(),
         ];
     }
 
     public function toJson(): string
     {
-       return json_encode($this->toArray());
+        return json_encode($this->toArray());
     }
-
 }

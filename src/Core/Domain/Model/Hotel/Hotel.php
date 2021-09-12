@@ -12,14 +12,13 @@ class Hotel implements Entity
     private Collection $bookings;
 
     public function __construct(
-        private int             $id,
-        private HotelName       $name,
-        private HotelAddress    $address,
-        private HotelPhone      $phone,
+        private int $id,
+        private HotelName $name,
+        private HotelAddress $address,
+        private HotelPhone $phone,
         private HotelNumOfRooms $numOfRooms,
         private HotelNumOfStars $numOfStars,
-    )
-    {
+    ) {
         $this->rooms = new ArrayCollection();
         $this->bookings = new ArrayCollection();
     }
@@ -72,7 +71,7 @@ class Hotel implements Entity
 
     public function toJson(): string
     {
-       return json_encode($this->toArray());
+        return json_encode($this->toArray());
     }
 
     public function rooms(): Collection

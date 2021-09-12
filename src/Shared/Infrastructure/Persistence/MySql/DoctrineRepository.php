@@ -16,7 +16,7 @@ class DoctrineRepository
         return $this->entityManager;
     }
 
-    protected function repository(string $entityClass): ObjectRepository | EntityManagerInterface
+    protected function repository(string $entityClass): ObjectRepository|EntityManagerInterface
     {
         return $this->entityManager->getRepository($entityClass);
     }

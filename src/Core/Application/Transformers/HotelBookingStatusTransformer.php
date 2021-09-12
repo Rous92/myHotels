@@ -2,7 +2,6 @@
 
 namespace MyHotels\Core\Application\Transformers;
 
-
 use MyHotels\Core\Domain\Model\Hotel\Hotel;
 use MyHotels\Shared\Application\Transformer\TransformableEntity;
 
@@ -13,6 +12,7 @@ final class HotelBookingStatusTransformer implements TransformableEntity
     public function write($data): TransformableEntity
     {
         $this->data = $data;
+
         return $this;
     }
 
@@ -22,8 +22,12 @@ final class HotelBookingStatusTransformer implements TransformableEntity
         $hotelData['rooms'] = [];
         $hotelData['bookings'] = [];
 
-        foreach ($this->data->rooms() as $room) $hotelData['rooms'][] = $room->toArray();
-        foreach ($this->data->bookings() as $booking) $hotelData['bookings'][] = $booking->toArray();
+        foreach ($this->data->rooms() as $room) {
+            $hotelData['rooms'][] = $room->toArray();
+        }
+        foreach ($this->data->bookings() as $booking) {
+            $hotelData['bookings'][] = $booking->toArray();
+        }
 
         return $hotelData;
     }

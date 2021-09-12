@@ -6,7 +6,6 @@ use Assert\Assertion;
 use Assert\AssertionFailedException;
 use DomainException;
 use MyHotels\Shared\Domain\Model\ValueObject\IntValueObject;
-use MyHotels\Shared\Domain\Model\ValueObject\StringValueObject;
 
 final class HotelNumOfRooms extends IntValueObject
 {

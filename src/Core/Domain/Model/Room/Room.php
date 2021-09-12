@@ -14,8 +14,7 @@ class Room implements Entity
         private RoomHasTelevision $hasTelevision,
         private RoomHasAirConditioner $hasAirConditioner,
         private RoomHasSafe $hasSafe,
-    )
-    {
+    ) {
     }
 
     public function id(): int
@@ -73,7 +72,6 @@ class Room implements Entity
 
     public function toJson(): string
     {
-       return json_encode($this->toArray());
+        return json_encode($this->toArray());
     }
-
 }

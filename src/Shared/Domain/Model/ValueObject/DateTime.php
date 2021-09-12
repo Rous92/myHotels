@@ -6,7 +6,6 @@ use Assert\Assertion;
 use Assert\AssertionFailedException;
 use DateTimeImmutable;
 use DateTimeZone;
-use Stringable;
 
 class DateTime
 {

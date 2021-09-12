@@ -9,7 +9,7 @@ use MyHotels\Shared\Infrastructure\Persistence\MySql\DoctrineRepository;
 
 class HotelMySqlRepository extends DoctrineRepository implements HotelRepository
 {
-    const ENTITY = Hotel::class;
+    public const ENTITY = Hotel::class;
 
     public function find(HotelId $id): ?Hotel
     {
