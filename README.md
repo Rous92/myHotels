@@ -14,7 +14,7 @@ This project uses `composer 2.0`, `PHP 8.0` and `MySql Database Service`.
 After unzipping the file, run `composer install` on the project's root folder. 
 Once the installation is completed, the tests can be run using the `composer test` command.
 
-To perform the API REST request and retrieve the data, a MySQL dump located in `etc/databases` should be imported to a database. Then start the Symfony server by running `symfony server:start -d`. Finally, execute the following cURL command to retrieve the data: `curl --location --request GET 'http://127.0.0.1:8000/hotel/100/booking/status'`
+To perform the API REST request and retrieve the data, a MySQL dump located in `etc/databases` should be imported to a database and configure properly the `DATABASE_URL` in the .env file. Then start the Symfony server by running `symfony server:start -d`. Finally, execute the following cURL command to retrieve the data: `curl --location --request GET 'http://127.0.0.1:8000/hotel/100/booking/status'`
 
 Also, a Postman collection is provided, which is located in `etc/endpoints`. So, instead of the cURL command, this collection can be imported to Postman and use the inside request (check the URL collection variable to point to the correct server!).
 
