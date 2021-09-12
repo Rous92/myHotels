@@ -2,15 +2,13 @@
 
 namespace MyHotels\Core\Application;
 
-use MyHotels\Core\Domain\Model\Hotel\HotelId;
-
 class GetHotelBookingStatus
 {
-    public function __construct(private HotelId $hotelId)
+    public function __construct(private ?int $hotelId)
     {
     }
 
-    public function hotelId(): HotelId
+    public function hotelId(): ?int
     {
         return $this->hotelId;
     }

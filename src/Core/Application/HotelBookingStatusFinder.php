@@ -3,6 +3,7 @@
 namespace MyHotels\Core\Application;
 
 use MyHotels\Core\Domain\Model\Hotel\Hotel;
+use MyHotels\Core\Domain\Model\Hotel\HotelId;
 use MyHotels\Core\Domain\Model\Hotel\HotelRepository;
 
 class HotelBookingStatusFinder
@@ -14,6 +15,8 @@ class HotelBookingStatusFinder
 
     public function __invoke(GetHotelBookingStatus $dto): ?Hotel
     {
-        return $this->hotelRepository->findWithRoomsAndBookings($dto->hotelId());
+        $hotelId = new HotelId($dto->hotelId());
+
+        return $this->hotelRepository->findWithRoomsAndBookings($hotelId);
     }
 }
