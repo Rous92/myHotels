@@ -7,7 +7,7 @@ In this project, you will find a hotel finder use case using an API REST request
 
 ## Dependencies
 
-This project uses `composer 2.0`, `PHP 8.0` and `MySql Database Service`.
+This project uses `composer 2.0`, `PHP 8.0`, `MySql Database Service` and `Symfony 5.3`.
 
 ## Usage
 
